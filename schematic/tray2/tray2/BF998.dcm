@@ -1,0 +1,14 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP BFP196
+D 15A Ic, 60V Vce, Power NPN Transistor, TO-3
+K power NPN Transistor
+F http://www.onsemi.com/pub_link/Collateral/2N3055-D.PDF
+$ENDCMP
+#
+$CMP ERA-3
+K RF GAIN BLOCK
+F https://www.nxp.com/docs/en/data-sheet/BGA2874.pdf
+$ENDCMP
+#
+#End Doc Library

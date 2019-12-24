@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name custom_symbols)(type Legacy)(uri /home/kosa/kicad/libraries/kicad_libraries/symbols/custom_symbols.lib)(options "")(descr ""))
+)
