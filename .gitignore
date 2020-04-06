@@ -1,0 +1,15 @@
+.cproject
+.project
+.settings/
+*.elf
+*.o
+*.d
+*.hex
+*.bin
+*.eep
+*.lss
+*.map
+*.sym
+*.swp
+*.a
+*.pyc
