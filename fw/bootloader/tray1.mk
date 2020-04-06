@@ -1,0 +1,4 @@
+CLOCK=10000000UL
+DEVICE=atmega128
+BOOTADDR=0x1e000
+# 4096 words bootloader
