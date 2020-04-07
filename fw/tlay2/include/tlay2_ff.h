@@ -3,6 +3,9 @@
 
 #include <stdint.h>
 
-uint8_t tlay2_process_ff();
+uint8_t tlay2_process_ff(void);
+
+uint8_t tlay2_boot_mode(void); //provided by software
+
 
 #endif

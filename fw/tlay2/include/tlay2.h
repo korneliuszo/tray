@@ -22,7 +22,4 @@ void tlay2_tx_end(void);
 uint16_t tlay2_rx_u16(uint8_t * buff);
 uint32_t tlay2_rx_u32(uint8_t * buff);
 
-
-uint8_t tlay2_boot_mode(void); //provided by software
-
 #endif
