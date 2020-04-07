@@ -24,7 +24,7 @@ else:
 
 while p_ff.get_mode(c,board_id) !=1:
     p_ff.enter_bootloader(c,board_id)
-    sleep(1)
+    time.sleep(1)
 
 page_size=p_fe.get_spmsize(c,board_id)
 
@@ -53,3 +53,7 @@ if b !=v:
     print("programming error")
 else:
     print("programming ok")
+    while p_ff.get_mode(c,board_id) !=0:
+        p_ff.enter_app(c,board_id)
+        time.sleep(1)
+
