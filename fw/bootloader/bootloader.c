@@ -1,7 +1,5 @@
 #include "tlay2.h"
 #include "tlay2_ff.h"
-#include "uart.h"
-
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <avr/pgmspace.h>
