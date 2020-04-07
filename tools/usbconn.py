@@ -30,6 +30,12 @@ class usb_conn:
                 usb.util.endpoint_direction(e.bEndpointAddress) == \
                 usb.util.ENDPOINT_IN)
 
+    def send_packet(self,data):
+        self.epout.write(data)
+
+    def recv_packet(self,timeout=0):
+        return bytes(self.epin.read(self.epin.wMaxPacketSize,timeout=timeout))
+
     def packet_raw(self,data):
         self.epout.write(data)
         return bytes(self.epin.read(self.epin.wMaxPacketSize,timeout=1000))
