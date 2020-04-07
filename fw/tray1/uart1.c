@@ -1,5 +1,5 @@
 
-#include "uart.h"
+#include "uart1.h"
 #include "fifo.h"
 
 #include <avr/io.h>
