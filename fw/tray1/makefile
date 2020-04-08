@@ -18,7 +18,7 @@ F_CPU        = 10000000
 F_USB        = $(F_CPU)
 OPTIMIZATION = s
 TARGET       = tray1
-SRC          = $(TARGET).c uart1.c
+SRC          = $(TARGET).c uart1.c pps.c pwm.c
 LUFA_PATH    = ../lufa/LUFA
 CC_FLAGS     = -flto -I../tlay2/include
 LD_FLAGS     = -Os -flto -fuse-linker-plugin -g2
@@ -38,7 +38,6 @@ program: all
 
 # Include LUFA-specific DMBS extension modules
 DMBS_LUFA_PATH ?= $(LUFA_PATH)/Build/LUFA
-include $(DMBS_LUFA_PATH)/lufa-gcc.mk
 
 # Include common DMBS build system modules
 DMBS_PATH      ?= $(LUFA_PATH)/Build/DMBS/DMBS

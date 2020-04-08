@@ -3,6 +3,16 @@
 #include "tlay2.h"
 #include "tlay2_ff.h"
 #include "uart1.h"
+#include "pps.h"
+#include "pwm.h"
+
+enum {
+	PPS_HOST_MODE = 0,
+};
+
+static uint8_t pps_mode = PPS_HOST_MODE;
+static int16_t pps_diff;
+static uint8_t pps_probe;
 
 uint8_t tlay2_boot_mode() {
 	return 0;
@@ -32,6 +42,27 @@ uint8_t process_01(void) {
 		tlay2_tx_end();
 		break;
 	}
+	case 0x01: {
+		if (len == 5)
+			pps_mode = buff[4];
+		tlay2_tx_init_reply();
+		tlay2_tx_byte(pps_mode);
+		tlay2_tx_end();
+		break;
+	}
+	case 0x02: {
+		tlay2_tx_init_reply();
+		tlay2_tx_byte(pps_probe);
+		tlay2_tx_u16(pps_diff);
+		tlay2_tx_end();
+		break;
+	}
+	case 0x03: {
+		pwm_set(tlay2_rx_u16(&buff[4]));
+		tlay2_tx_init_reply();
+		tlay2_tx_end();
+		break;
+	}
 	default:
 		break;
 	}
@@ -42,12 +73,24 @@ int main(void) {
 	sei();
 	tlay2_init();
 	uart1_init();
+	pps_init();
+	pwm_init();
 	for (;;) {
 		if (tlay2_checkslave()) {
 			if (tlay2_process_ff()) {
 			} else if (process_01()) {
 			}
 			tlay2_reset();
+		}
+		if (pps_get_meas(&pps_diff)) {
+			pps_probe += 1;
+			switch (pps_mode) {
+			case PPS_HOST_MODE: {
+				break;
+			}
+			default:
+				break;
+			}
 		}
 	}
 	return 0;
