@@ -1,0 +1,4 @@
+CLOCK=10000000UL
+DEVICE=atmega328p
+BOOTADDR=0x7000
+# 4096 words bootloader

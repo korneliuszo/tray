@@ -22,8 +22,13 @@ uint8_t mcusr_state __attribute__ ((section (".noinit")));
 void get_mcusr(void) __attribute__((naked))
 __attribute__((section(".init3"))) __attribute__((used));
 void get_mcusr(void) {
+#if defined(MCUCSR)
 	mcusr_state = MCUCSR;
 	MCUCSR = 0;
+#else
+	mcusr_state = MCUSR;
+	MCUSR = 0;
+#endif
 	wdt_disable();
 }
 
