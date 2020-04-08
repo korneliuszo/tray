@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:tray2-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
@@ -201,10 +200,6 @@ Wire Wire Line
 	8200 3700 7750 3700
 Wire Wire Line
 	7750 3900 10050 3900
-Wire Wire Line
-	10050 3900 10050 3650
-Wire Wire Line
-	10050 3650 10200 3650
 Wire Wire Line
 	7750 5400 7950 5400
 $Comp
@@ -1560,4 +1555,8 @@ F 3 "" H 9650 4050 50  0001 C CNN
 	1    9650 4050
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	10200 4150 10050 4150
+Wire Wire Line
+	10050 4150 10050 3900
 $EndSCHEMATC
