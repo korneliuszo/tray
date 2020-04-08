@@ -4,7 +4,7 @@
 #include <avr/interrupt.h>
 #include <util/atomic.h>
 
-#define OCR_VAL ((F_CPU/153) - 1)
+#define OCR_VAL ((F_CPU/160) - 1)
 
 static volatile uint16_t pps_last_meas;
 static volatile uint16_t pps_diff;
