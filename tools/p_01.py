@@ -20,3 +20,8 @@ def get_probe(conn,id_board):
 def set_pwm(conn,id_board,pwm):
     d=conn.packet(struct.pack("<BBBH",id_board,0x01,0x03,pwm))
     return
+
+def get_auto(conn,id_board):
+    d=conn.packet(struct.pack("<BBB",id_board,0x01,0x04))
+    u=struct.unpack("<BBBbBHH",d)[3:7]
+    return {"cumm": u[0], "pos":u[1], "pwm": u[2], "count":u[3]}
