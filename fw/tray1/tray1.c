@@ -121,6 +121,9 @@ int main(void) {
 			case PPS_AUTO_MODE: {
 				auto_cumm += pps_diff;
 				auto_count += 1;
+				if (abs(pps_diff) > 5 && auto_pos < 9) {
+					pps_set_mode(PPS_AUTO_RESET_MODE);
+				}
 				if (auto_cumm > 10) {
 					auto_pwm -= 1 << auto_pos;
 					if (auto_pos > 0)
