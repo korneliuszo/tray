@@ -7,7 +7,7 @@
 #include "pwm.h"
 
 enum {
-	PPS_HOST_MODE = 0, PPS_AUTO_MODE = 1,
+	PPS_HOST_MODE = 0, PPS_AUTO_RESET_MODE = 1, PPS_AUTO_MODE = 2,
 };
 
 static int8_t auto_cumm;
@@ -25,7 +25,7 @@ uint8_t tlay2_boot_mode() {
 
 void pps_set_mode(uint8_t new) {
 	pps_mode = new;
-	if (pps_mode == PPS_AUTO_MODE) {
+	if (pps_mode == PPS_AUTO_RESET_MODE) {
 		auto_cumm = 0;
 		auto_pos = 15;
 		auto_pwm = 0x7ffff;
@@ -112,6 +112,10 @@ int main(void) {
 			pps_probe += 1;
 			switch (pps_mode) {
 			case PPS_HOST_MODE: {
+				break;
+			}
+			case PPS_AUTO_RESET_MODE: {
+				pps_set_mode(PPS_AUTO_MODE);
 				break;
 			}
 			case PPS_AUTO_MODE: {
