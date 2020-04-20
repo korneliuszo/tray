@@ -1,5 +1,6 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include <stdlib.h>
 #include "tlay2.h"
 #include "tlay2_ff.h"
 #include "uart1.h"
