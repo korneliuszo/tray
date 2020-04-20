@@ -28,7 +28,7 @@ void pps_set_mode(uint8_t new) {
 	if (pps_mode == PPS_AUTO_RESET_MODE) {
 		auto_cumm = 0;
 		auto_pos = 15;
-		auto_pwm = 0x7ffff;
+		auto_pwm = 0x7fff;
 		auto_count = 0;
 		pwm_set(auto_pwm);
 	}
