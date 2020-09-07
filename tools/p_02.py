@@ -24,4 +24,8 @@ def measure(conn,id_board,channel):
         time.sleep(0.5)
     if channel == 0:
         val*=64
+    if channel == 3:
+        val*=128
+    if channel == 4:
+        val*=256
     return val

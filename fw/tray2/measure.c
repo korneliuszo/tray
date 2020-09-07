@@ -11,6 +11,7 @@ static volatile uint8_t complete;
 
 void measure_init(void) {
 	DDRB = (1 << 1) | (1 << 4) | (1 << 5);
+	DDRC |= (1 << 1) | (1 << 0);
 	ICR1 = OCR_VAL;
 	OCR1A = OCR_VAL / 2;
 	TCCR1A = (1 << COM1A1);
@@ -48,6 +49,8 @@ void measure_set_channel(uint8_t channel) {
 	default:
 		PORTB &= ~(1 << 4);
 		PORTB &= ~(1 << 5);
+		PORTC |=  (1 << 1);
+		PORTC |=  (1 << 0);
 		break;
 	case 1:
 		PORTB |= (1 << 4);
@@ -56,6 +59,18 @@ void measure_set_channel(uint8_t channel) {
 	case 2:
 		PORTB &= ~(1 << 4);
 		PORTB |= (1 << 5);
+		break;
+	case 3:
+		PORTB &= ~(1 << 4);
+		PORTB &= ~(1 << 5);
+		PORTC &= ~(1 << 1);
+		PORTC |=  (1 << 0);
+		break;
+	case 4:
+		PORTB &= ~(1 << 4);
+		PORTB &= ~(1 << 5);
+		PORTC &= ~(1 << 1);
+		PORTC &= ~(1 << 0);
 		break;
 	}
 }
