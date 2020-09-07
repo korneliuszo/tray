@@ -49,6 +49,7 @@ int main(void) {
 	tlay2_init();
 	measure_init();
 	register_init();
+	last_measure = register_get();
 	for (;;) {
 		if (tlay2_checkslave()) {
 			if (tlay2_process_ff()) {
