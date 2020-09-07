@@ -3,9 +3,13 @@
 import argparse
 import time
 from tqdm import tqdm
+
+def auto_int(x):
+        return int(x, 0)
+
 parser = argparse.ArgumentParser()
 parser.add_argument("-u","--usb",action="store_true")
-parser.add_argument("-i", "--id", type=int, default=1)
+parser.add_argument("-i", "--id", type=auto_int, default=1)
 parser.add_argument("bin")
 args = parser.parse_args()
 
