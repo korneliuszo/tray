@@ -11,7 +11,7 @@
 
 # Run "make help" for target help.
 
-MCU          = atmega328p
+MCU          = atmega328
 ARCH         = AVR8
 BOARD        = NONE
 F_CPU        = 16000000
