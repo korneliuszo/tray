@@ -13,7 +13,7 @@ COMPILE = avr-gcc -Wall -Os -g2 -DF_CPU=$(CLOCK) -mmcu=$(DEVICE) -include $(CONF
 all: checkdirs $(BUILDDIR)/libtlay2.a
 
 $(BUILDDIR)/libtlay2.a: $(addprefix $(BUILDDIR)/, $(SRC:.c=.o))
-	avr-ar -c -r -s $@ $^
+	avr-gcc-ar -c -r -s $@ $^
 
 $(BUILDDIR)/%.o: %.c
 	$(COMPILE) -c $< -o $@
