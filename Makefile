@@ -1,7 +1,14 @@
 
-.PHONY: all tray0 tray1 bootloader1 tray2 bootloader2 tray3 bootloader3
+.PHONY: all
+.PHONY: tray0
+.PHONY: tray1 bootloader1
+.PHONY: tray2 bootloader2
+.PHONY: tray3 bootloader3
 
-all: tray0 tray1 bootloader1 tray2 bootloader2 tray3 bootloader3
+all: tray0
+all: tray1 bootloader1
+all: tray2 bootloader2
+all: tray3 bootloader3
 
 tray0:
 	$(MAKE) -C fw/tray0
