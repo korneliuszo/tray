@@ -174,19 +174,19 @@ def set_full_regs(conn,id_board,channel,freq,power=-4):
     N = vcofreq / fpfd;
     if N%1 == 0:
         intN = True
-        int = round(N)
+        intm = round(N)
         frac = 0
         mod = 2
     else:
         intN = False
-        int = int(N)
-        _frac = fraction.Fraction(N%1).limit_denominator(4095)
+        intm = int(N)
+        _frac = fractions.Fraction(N%1).limit_denominator(4095)
         frac = _frac.numerator
         mod = _frac.denominator
     
-    assert(int >= mdiv)
+    assert(intm >= mdiv)
     
-    realfreq = (int + frac/mod) * fpfd / 2**rf_div
+    realfreq = (intm + frac/mod) * fpfd / 2**rf_div
     
     reg5 = REG5()
     reg5.regnum = 5
@@ -260,7 +260,7 @@ def set_full_regs(conn,id_board,channel,freq,power=-4):
     reg0 = REG0()
     reg0.regnum = 0
     reg0.frac = frac
-    reg0.int = int
+    reg0.int = intm
     reg0.reserved1 = 0
     set_raw_reg(conn,id_board,channel,reg0.register)
     #print(hex(reg0.register))
