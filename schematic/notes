@@ -1,5 +1,4 @@
 #tray0
-added electrolitycs caps on 5V rail and 12V rail
 #tray1
 added 5V LDO and powering from 12V line
 added 10ohm resistor in series on line from NOT buffer to IDC20 connector

@@ -1,3 +1,4 @@
 (fp_lib_table
   (lib (name Custom_Footprints)(type KiCad)(uri /home/kosa/kicad/libraries/kicad_libraries/footprints/Custom_Footprints.pretty)(options "")(descr ""))
+  (lib (name tray0)(type KiCad)(uri ${KIPRJMOD}/tray0.pretty)(options "")(descr ""))
 )
